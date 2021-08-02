@@ -1,0 +1,62 @@
+.book {
+  width: 250px;
+  height: 350px;
+  box-shadow: 5px 5px 0 #ad103a;
+  border: 1px solid #ad103a;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+
+.book:hover {
+  box-shadow: 0 0 0 #ad103a;
+  transform: scale(1.1);
+  background-color: rgb(214, 179, 104);
+}
+
+.book:hover .book__list {
+  background-color: rgb(24, 11, 24);
+}
+
+.book:hover .book__text {
+  visibility: visible;
+}
+
+.book__title {
+  display: block;
+  text-align: center;
+  margin: 5px 0;
+  font-size: 16px;
+  color: rgb(47, 90, 41);
+}
+
+.book__img {
+  display: block;
+  width: 150px;
+  height: 150px;
+
+}
+
+.book__list {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.book__item {}
+
+.book__text {
+  visibility: hidden;
+  display: block;
+  max-width: 340px;
+  width: 100%;
+  min-width: 200px;
+  text-align: center;
+  margin: 5px auto;
+  font-size: 10px;
+  line-height: 14px;
+}

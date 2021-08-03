@@ -3,7 +3,6 @@ import './book.css';
 
 
 class BookItem extends React.Component {
-
   render() {
     const {
      key, title,image,author,categor,language,description

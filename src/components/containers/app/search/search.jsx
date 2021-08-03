@@ -2,6 +2,7 @@ import React from 'react';
 import "./search.css";
 import BookList from '../../bookList/bookList';
 import Number from '../../number/number';
+import Pagination from './pagin';
 
 
 class Search extends React.Component {
@@ -19,16 +20,12 @@ class Search extends React.Component {
       searchTerm: e.target.value
     })
   }
-  // searchTermChanged(searchTerm) {
-  //   this.setState({
-  //     searchTerm,
-  //   });
-  // }
-  increacePagination = (e) => {
-    this.setState ({
-      startIndex: this.state.startIndex + 30,
-      // results: this.state.results,
-    });
+
+  handlePagination = () => {
+    this.setState(prevState => ({
+      startIndex: prevState.startIndex + 30,
+    }
+    ));
   }
 
   formatQueryParams(params) {
@@ -45,7 +42,7 @@ class Search extends React.Component {
     const params = {
       key: "AIzaSyDUKowM02Lgu_N3GsnH7cpTOnE2PzGk6Pc",
       q: this.state.searchTerm,
-      maxResults: 10,
+      maxResults: 20,
     };
     const queryString = "?" + this.formatQueryParams(params);
     const url = baseURL + queryString +"&startIndex"+ start;
@@ -96,9 +93,8 @@ class Search extends React.Component {
             className='search__field'
               placeholder="SEARCH BOOK..."
               onChange={this.searchTermChanged}
-            // onChange={(e) => this.searchTermChanged(e.target.value)}
-            value={this.state.searchTerm}
-            required />
+              value={this.state.searchTerm}
+              required />
           <button type="submit"
             value='Send'
             className='search__btn'></button>
@@ -120,13 +116,8 @@ class Search extends React.Component {
                 <option selected value='Relevance '>Relevance </option>
                 <option value='Newest'>Newest</option>
               </select>
-          </div>
-            <div className="pagination">
-            <button className="pagination__btn"
-              value= {this.state.searchTerm}
-              onClick={(e) => { this.increacePagination(e) }}>
-                load more: </button>
-          </div>
+            </div>
+            <Pagination onPagination={this.handlePagination}/>
           </form>
       </div>
         {counter}

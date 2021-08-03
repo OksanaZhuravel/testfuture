@@ -2,7 +2,7 @@ import React from 'react';
 import "./search.css";
 import BookList from '../../bookList/bookList';
 import Number from '../../number/number';
-import Pagination from './pagin';
+import Pagination from '../pagin/pagin';
 
 
 class Search extends React.Component {
